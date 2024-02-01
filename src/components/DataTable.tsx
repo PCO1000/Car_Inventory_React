@@ -37,12 +37,7 @@ function DataTable() {
 
   return (
     <>
-        <Modal
-            id={selectionModel} 
-            open={open}
-            onClose={handleClose}
-        />
-        <div className="flex flex-row">
+         <div className="flex flex-row">
             <div>
                 <button
                     className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white"
@@ -54,6 +49,12 @@ function DataTable() {
             <Button onClick={handleOpen} className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white" >Update</Button>
             <Button onClick={deleteData} className="p-3 bg-slate-300 rounded m-3 hover:bg-slate-800 hover:text-white" >Delete</Button>
         </div>
+        <Modal
+            id={selectionModel} 
+            open={open}
+            onClose={handleClose}
+        />
+       
         <div className={ open ? "hidden" : "container mx-10 my-5 flex flex-col"}
             style={{ height: 400, width: '100%'}}
             >

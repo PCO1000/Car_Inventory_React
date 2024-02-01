@@ -65,16 +65,9 @@ function Navbar() {
                             </Link>
                         </div>
                     </Button>
-                    <Button  className='p-3 m-5 bg-blue-400 justify-center'>
-                        <div>
-                            <Link to='/dashboard' onClick={ clicked } className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-                             text-black-200 hover:text-white mr-4'>
-                                Dashboard
-                            </Link>
-                        </div>
-                    </Button>
                     {
-                        !auth.currentUser ?
+                        !localStorage.getItem("isSignedIn")?
+
 
                         <Button  className='p-3 m-5 bg-blue-400 justify-center'>
                             <div>
@@ -85,14 +78,24 @@ function Navbar() {
                             </div>
                         </Button>
                         :
-                        <Button  className='p-3 m-5 bg-blue-400 justify-center'>
+                        <>
+                            <Button  className='p-3 m-5 bg-blue-400 justify-center'>
                             <div>
-                                <Link to="/" onClick={ () =>{signOutOnClick()}} className="flex place-items-center mt-4 
-                                lg:inline-block lg:mt-0 text-black-200 hover:text-white mr-4">
-                                    Sign Out
+                                <Link to='/dashboard' onClick={ clicked } className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
+                                text-black-200 hover:text-white mr-4'>
+                                    Dashboard
                                 </Link>
                             </div>
-                        </Button>
+                            </Button>
+                            <Button  className='p-3 m-5 bg-blue-400 justify-center'>
+                                <div>
+                                    <Link to="/" onClick={ () =>{signOutOnClick()}} className="flex place-items-center mt-4 
+                                    lg:inline-block lg:mt-0 text-black-200 hover:text-white mr-4">
+                                        Sign Out
+                                    </Link>
+                                </div>
+                            </Button>
+                        </>
                     }
                     
                     
