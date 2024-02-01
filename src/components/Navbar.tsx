@@ -4,6 +4,9 @@ import Button from './Button'
 import { signInWithPopup, signOut } from 'firebase/auth'
 import { auth, Providers } from '../config/firebase'
 
+///
+
+
 
 function Navbar() {
 
@@ -11,12 +14,14 @@ function Navbar() {
 
     const signOutOnClick = () => {
         signOut(auth)
+        localStorage.removeItem("isSignedIn")
         location.reload();
     }
 
     const signInOnClick = async () => {
         const response = await signInWithPopup(auth, Providers.google);
-        if ( response.user) {
+        if  ( response.user) {
+            localStorage.setItem( "isSignedIn", "true")
             location.reload();
         }
 
